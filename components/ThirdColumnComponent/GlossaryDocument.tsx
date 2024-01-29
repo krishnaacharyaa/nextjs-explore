@@ -1,12 +1,6 @@
 import { useAppContext } from "@/context/appContext";
 import { useEffect, useState } from "react";
 
-type GlossaryType = {
-	GlossaryId: number;
-	Term: string;
-	Description: string;
-};
-
 export default function GlossaryDocument() {
 	const { stockLevelSelected } = useAppContext();
 	const [data, setData] = useState(null);
