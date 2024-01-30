@@ -29,7 +29,9 @@ export const AppContext = createContext<AppContextType | null>(null);
 
 export default function AppContextProvider({ children, initialData }) {
 	const saveData = (data) => {
-		localStorage.setItem(STORE_SELECTION, JSON.stringify(data));
+		if (typeof window != undefined) {
+			localStorage.setItem(STORE_SELECTION, JSON.stringify(data));
+		}
 	};
 	const getSavedData = () => {
 		var savedData = null;
