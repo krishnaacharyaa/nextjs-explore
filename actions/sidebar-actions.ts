@@ -13,3 +13,19 @@ export async function getUserUniverseData(userid: number) {
     console.log("Axios Get Error :(", error);
   }
 }
+
+export async function getSummaryByDocumentId(documentId: number) {
+  try {
+    console.log("Get summary By document is called")
+    const response = await axios.get(
+      `http://localhost:3000/api/summary/${documentId}`
+    );
+    const result = response.data;
+    console.log("The result is ", result)
+    return result;
+  } catch (error: any) {
+    console.log("Axios Get Error :(", error);
+  }
+}
+
+
