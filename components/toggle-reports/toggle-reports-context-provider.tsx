@@ -8,8 +8,9 @@ interface Props {
 
 export function ToggleReportsContextProvider({ children }: Props) {
   const value = useExpanded();
+
   return (
-    <ToggleReportsContext.Provider value={value}>
+    <ToggleReportsContext.Provider value={{ ...value }}>
       {children}
     </ToggleReportsContext.Provider>
   );

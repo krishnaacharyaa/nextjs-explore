@@ -22,6 +22,7 @@ export default function Home() {
         <ToggleReportsContextProvider>
           <ToggleReports compute={compute} />
         </ToggleReportsContextProvider>
+        {/* <SideBarList items={items} compute={compute} /> */}
       </div>
       <div className="w-3/12">
         <DocumentList items={items} />

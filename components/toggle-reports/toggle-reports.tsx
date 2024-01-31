@@ -15,7 +15,7 @@ interface ToggleReportsProps {
 export function ToggleReports({}: ToggleReportsProps) {
   const { items } = useAppContext();
   const { isExpanded, expanded } = useToggleReportsContext();
-  console.log({ expanded });
+
   return (
     <>
       <ul className="list-none text-left pl-3">
@@ -25,7 +25,7 @@ export function ToggleReports({}: ToggleReportsProps) {
           return (
             <ReportListItem key={item.uniqueId} item={item}>
               {hasChildrens && showChildrens && (
-                <ReportList parentUid={item.uniqueId} items={item.items} />
+                <ReportList items={item.items} />
               )}
             </ReportListItem>
           );
@@ -35,13 +35,7 @@ export function ToggleReports({}: ToggleReportsProps) {
   );
 }
 
-function ReportList({
-  parentUid,
-  items,
-}: {
-  parentUid: string;
-  items: Array<TreeNode>;
-}) {
+function ReportList({ items }: { items: Array<TreeNode> }) {
   const { isExpanded } = useToggleReportsContext();
   return (
     <>
@@ -50,7 +44,7 @@ function ReportList({
         return (
           <ReportListItem key={item.uniqueId} item={item}>
             {hasChildrens && isExpanded(item.uniqueId) && (
-              <ReportList parentUid={item.uniqueId} items={item.items} />
+              <ReportList items={item.items} />
             )}
           </ReportListItem>
         );
@@ -82,13 +76,13 @@ function ReportListItem({
                 type="button"
                 className="ml-2"
                 onClick={() => {
-                  toggle(item.uniqueId);
+                  toggle(item.uniqueId, item.level);
                 }}
                 aria-label="Toggle Item"
               >
                 <Image
-                  src={!isPanda ? ArrowDown : ArrowUp}
-                  alt={!isPanda ? '[-]' : '[+]'}
+                  src={isPanda ? ArrowDown : ArrowUp}
+                  alt={isPanda ? '[-]' : '[+]'}
                 />
               </button>
             )}

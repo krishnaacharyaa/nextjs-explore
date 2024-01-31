@@ -14,7 +14,14 @@ export interface TreeNode {
   DocumentDateTime?: string;
   DocumentSourceName?: string;
   DocumentSourceURL?: string;
-  level: string;
+  level: TreeNodeLevel;
   items: TreeNode[];
   status: $TsFixMe;
+}
+
+export enum TreeNodeLevel {
+  ECO_SYSTEM_NAME = 'EcoSystemName',
+  STOCK_NAME = 'StockName',
+  DOCUMENT_TYPE_NAME = 'DocumentTypeName',
+  Document = 'Document',
 }
