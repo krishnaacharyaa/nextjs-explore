@@ -5,9 +5,15 @@ import ArrowUp from '@/svg/arrow-up.svg';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import Checkbox from './Checkbox';
+import { TreeNode } from '@/utils/types';
+import { $TsFixMe } from '@/types';
 
-export default function SideBarList(props) {
-  const { items, compute } = props;
+interface SideBarListProps {
+  items: Array<TreeNode>;
+  compute: (checkboxId: $TsFixMe, status: $TsFixMe) => void;
+}
+
+export default function SideBarList({ items, compute }: SideBarListProps) {
   const {
     ecosystemSelected,
     setEcosystemSelected,
@@ -25,8 +31,8 @@ export default function SideBarList(props) {
       setExpandedItems([...expandedItems, itemId]);
     }
   };
-  const isEcoSystemLevel = (item) => item.level === 'EcoSystemName';
-  const isStockLevel = (item) => item.level === 'StockName';
+  const isEcoSystemLevel = (item: TreeNode) => item.level === 'EcoSystemName';
+  const isStockLevel = (item: TreeNode) => item.level === 'StockName';
   return (
     <ul className="list-none text-left pl-3">
       {items.map((item) => {
@@ -60,8 +66,8 @@ export default function SideBarList(props) {
                   onClick={() => {
                     if (item.level === 'StockName') {
                       setStockLevelSelected({
-                        stockName: item.name,
-                        stockId: item.StockId,
+                        stockName: item.name!,
+                        stockId: item.StockId!,
                       });
                     }
                   }}
@@ -83,6 +89,7 @@ export default function SideBarList(props) {
                     onClick={() => {
                       handleLabelToggleClick(item);
                     }}
+                    aria-label="Toggle Item"
                   >
                     <Image
                       src={isExpanded ? ArrowDown : ArrowUp}
@@ -99,7 +106,7 @@ export default function SideBarList(props) {
     </ul>
   );
 
-  function handleLabelToggleClick(item) {
+  function handleLabelToggleClick(item: $TsFixMe) {
     if (isEcoSystemLevel(item)) {
       setEcosystemSelected(item.name);
       setStockLevelSelected({

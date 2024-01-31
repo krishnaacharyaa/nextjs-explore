@@ -4,11 +4,12 @@ import { traverse } from '../utils/home-utils';
 import SideBarList from './FirstColumn';
 import DocumentList from './SecondColumn';
 import TabComponent from './ThirdColumn';
+import { $TsFixMe } from '@/types';
 
 export default function Home() {
   const { items, setItems } = useAppContext();
 
-  const compute = (checkboxId, status) => {
+  const compute = (checkboxId: $TsFixMe, status: $TsFixMe) => {
     traverse(items, checkboxId, status);
     setItems(items.slice());
   };

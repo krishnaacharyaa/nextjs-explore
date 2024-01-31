@@ -1,8 +1,10 @@
+import { $TsFixMe } from '@/types';
+
 export interface TreeNode {
-  uniqueId: number;
+  uniqueId: string;
   EcoSystemId?: number;
   EcoSystemName?: string;
-  StockId?: number;
+  StockId?: string;
   StockName?: string;
   DocumentTypeId?: number;
   DocumentTypeName?: string;
@@ -14,4 +16,5 @@ export interface TreeNode {
   DocumentSourceURL?: string;
   level: string;
   items: TreeNode[];
+  status: $TsFixMe;
 }

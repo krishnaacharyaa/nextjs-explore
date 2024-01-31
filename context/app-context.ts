@@ -1,6 +1,8 @@
 'use client';
 
+import { $TsFixMe } from '@/types';
 import { DocumentItemType } from '@/types/zod-to-type';
+import { TreeNode } from '@/utils/types';
 import React from 'react';
 
 interface StockInfo {
@@ -9,7 +11,7 @@ interface StockInfo {
 }
 
 export interface AppContextState {
-  items: any;
+  items: Array<TreeNode>;
   setItems: React.Dispatch<React.SetStateAction<any>>;
   selectedItems: DocumentItemType[];
   setSelectedItems: React.Dispatch<React.SetStateAction<DocumentItemType[]>>;
@@ -23,7 +25,23 @@ export interface AppContextState {
   setStockLevelSelected: React.Dispatch<React.SetStateAction<StockInfo>>;
 }
 
-export const AppContext = React.createContext<Partial<AppContextState>>({});
+const defaultState: AppContextState = {
+  items: [],
+  setItems: () => {},
+  selectedItems: [],
+  setSelectedItems: () => {},
+  selectedDocument: null,
+  setSelectedDocument: () => {},
+  ecosystemSelected: '',
+  setEcosystemSelected: () => {},
+  stockLevelSelected: {
+    stockId: '',
+    stockName: '',
+  },
+  setStockLevelSelected: () => {},
+};
+
+export const AppContext = React.createContext<AppContextState>(defaultState);
 
 export function useAppContext() {
   const context = React.useContext(AppContext);
