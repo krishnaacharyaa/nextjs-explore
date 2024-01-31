@@ -1,17 +1,22 @@
-export function createTree(data) {
-  const ecosystems = {};
+import { UserDataCollection } from '@/types/user-data';
+import { TreeNode } from './types';
+
+export function createTree(data: UserDataCollection) {
+  const ecosystems: { [key: number]: TreeNode } = {};
 
   data.forEach((item) => {
     const ecoId = item.EcoSystemId;
     const stockId = item.StockId;
     const docTypeId = item.DocumentTypeId;
 
+    ecosystems[ecoId];
+
     ecosystems[ecoId] = ecosystems[ecoId] || {
       uniqueId: ecoId,
       EcoSystemId: ecoId,
       EcoSystemName: item.EcoSystemName,
       name: item.EcoSystemName,
-      level: "EcoSystemName",
+      level: 'EcoSystemName',
       items: [],
     };
 
@@ -25,14 +30,14 @@ export function createTree(data) {
         StockId: stockId,
         StockName: item.StockName,
         name: item.StockName,
-        level: "StockName",
+        level: 'StockName',
         items: [],
       });
     }
 
     const stockItem = ecosystems[ecoId].items.find(
       (stock) => stock.StockId === stockId
-    );
+    )!;
 
     const docTypeIndex = stockItem.items.findIndex(
       (docType) => docType.DocumentTypeId === docTypeId
@@ -44,14 +49,14 @@ export function createTree(data) {
         DocumentTypeId: docTypeId,
         DocumentTypeName: item.DocumentTypeName,
         name: item.DocumentTypeName,
-        level: "DocumentTypeName",
+        level: 'DocumentTypeName',
         items: [],
       });
     }
 
     const docTypeItem = stockItem.items.find(
       (docType) => docType.DocumentTypeId === docTypeId
-    );
+    )!;
 
     docTypeItem.items.push({
       uniqueId: parseInt(
@@ -60,12 +65,13 @@ export function createTree(data) {
       ),
       DocumentId: item.DocumentId,
       name: item.Name,
-      level: "Document",
-      Name: item.Name,
+      level: 'Document',
+      // name: item.Name,
       DocumentLocation: item.DocumentLocation,
       DocumentDateTime: item.DocumentDateTime,
       DocumentSourceName: item.DocumentSourceName,
       DocumentSourceURL: item.DocumentSourceURL,
+      items: [], // No need for further nesting
     });
   });
 

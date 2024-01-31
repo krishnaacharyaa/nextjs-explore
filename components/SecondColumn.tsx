@@ -1,4 +1,4 @@
-import { useAppContext } from "@/context/appContext";
+import { useAppContext } from "@/context/app-context";
 import { findStockNameById } from "../utils/home-utils";
 
 export default function DocumentList({ items }) {

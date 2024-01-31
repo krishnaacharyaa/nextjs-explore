@@ -1,9 +1,9 @@
-"use client";
-import { useAppContext } from "@/context/appContext";
-import { traverse } from "../utils/home-utils";
-import SideBarList from "./FirstColumn";
-import DocumentList from "./SecondColumn";
-import TabComponent from "./ThirdColumn";
+'use client';
+import { useAppContext } from '@/context/app-context';
+import { traverse } from '../utils/home-utils';
+import SideBarList from './FirstColumn';
+import DocumentList from './SecondColumn';
+import TabComponent from './ThirdColumn';
 
 export default function Home() {
   const { items, setItems } = useAppContext();
