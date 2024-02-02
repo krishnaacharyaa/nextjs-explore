@@ -15,16 +15,15 @@ export default function SideBarList(props) {
     setStockLevelSelected,
   } = useAppContext();
   const [expandedItems, setExpandedItems] = useState<number[]>(
-    // Retrieve the expanded items from localStorage on component mount
     () => JSON.parse(localStorage.getItem("expandedItems")) || []
   );
-
   const toggleItem = (itemId: number, level: string) => {
     let newExpandedItems;
     if (expandedItems.includes(itemId)) {
       newExpandedItems = expandedItems.filter((id) => id !== itemId);
     } else if (level === "StockName" || level === "EcoSystemName") {
-      newExpandedItems = [itemId];
+      // set parent-id and the stock id -> it works for ecosystem as well
+      newExpandedItems = [parseInt(itemId.toString().charAt(0)), itemId];
     } else {
       newExpandedItems = [...expandedItems, itemId];
     }
