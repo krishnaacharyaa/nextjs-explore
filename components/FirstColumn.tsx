@@ -14,12 +14,12 @@ export default function SideBarList(props) {
     stockLevelSelected,
     setStockLevelSelected,
   } = useAppContext();
-  const [expandedItems, setExpandedItems] = useState<string[]>(
+  const [expandedItems, setExpandedItems] = useState<number[]>(
     // Retrieve the expanded items from localStorage on component mount
     () => JSON.parse(localStorage.getItem("expandedItems")) || []
   );
 
-  const toggleItem = (itemId: string, level: string) => {
+  const toggleItem = (itemId: number, level: string) => {
     let newExpandedItems;
     if (expandedItems.includes(itemId)) {
       newExpandedItems = expandedItems.filter((id) => id !== itemId);
