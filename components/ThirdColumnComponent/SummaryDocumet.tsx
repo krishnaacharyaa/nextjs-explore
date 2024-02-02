@@ -20,7 +20,9 @@ export default function SummaryDocument() {
       <div className="p-2 ">Client Side API fetch based on selected Stock:</div>
       {data}
       <br></br>
-      <button onClick={mutateUserUniverserData}>Mutate the initial data</button>
+      <button onClick={() => mutateUserUniverserData()}>
+        Mutate the initial data
+      </button>
     </main>
   );
 }

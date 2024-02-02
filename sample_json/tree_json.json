@@ -1,0 +1,171 @@
+[
+  {
+    "uniqueId": 1,
+    "EcoSystemId": 1,
+    "EcoSystemName": "Banking",
+    "name": "Banking",
+    "level": "EcoSystemName",
+    "items": [
+      {
+        "uniqueId": 13,
+        "StockId": 3,
+        "StockName": "HDFC Bank Limited",
+        "name": "HDFC Bank Limited",
+        "level": "StockName",
+        "items": [
+          {
+            "uniqueId": 131,
+            "DocumentTypeId": 1,
+            "DocumentTypeName": "Annual Reports",
+            "name": "Annual Reports",
+            "level": "DocumentTypeName",
+            "items": [
+              {
+                "uniqueId": 1318,
+                "DocumentId": 8,
+                "name": "Annual Report 2020-2021",
+                "level": "Document",
+                "Name": "Annual Report 2020-2021",
+                "DocumentLocation": "D:/Python Projects/LLM/DocumentChat/Documents/RELIANCE.NSE/Annual Reports/AR_2020-21.pdf",
+                "DocumentDateTime": "2024-01-27T09:39:44.000Z",
+                "DocumentSourceName": "BSE",
+                "DocumentSourceURL": "https://www.bseindia.com/bseplus/AnnualReport/500325/68509500325.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uniqueId": 2,
+    "EcoSystemId": 2,
+    "EcoSystemName": "Large Cap",
+    "name": "Large Cap",
+    "level": "EcoSystemName",
+    "items": [
+      {
+        "uniqueId": 21,
+        "StockId": 1,
+        "StockName": "Reliance Industries Limited",
+        "name": "Reliance Industries Limited",
+        "level": "StockName",
+        "items": [
+          {
+            "uniqueId": 211,
+            "DocumentTypeId": 1,
+            "DocumentTypeName": "Annual Reports",
+            "name": "Annual Reports",
+            "level": "DocumentTypeName",
+            "items": [
+              {
+                "uniqueId": 2111,
+                "DocumentId": 1,
+                "name": "Annual Report 2020-2021",
+                "level": "Document",
+                "Name": "Annual Report 2020-2021",
+                "DocumentLocation": "D:/Python Projects/LLM/DocumentChat/Documents/RELIANCE.NSE/Annual Reports/AR_2020-21.pdf",
+                "DocumentDateTime": "2024-01-27T09:39:43.000Z",
+                "DocumentSourceName": "BSE",
+                "DocumentSourceURL": "https://www.bseindia.com/bseplus/AnnualReport/500325/68509500325.pdf"
+              },
+              {
+                "uniqueId": 2112,
+                "DocumentId": 2,
+                "name": "Annual Report 2021-2022",
+                "level": "Document",
+                "Name": "Annual Report 2021-2022",
+                "DocumentLocation": "D:/Python Projects/LLM/DocumentChat/Documents/RELIANCE.NSE/Annual Reports/AR_2021-22.pdf",
+                "DocumentDateTime": "2024-01-27T09:39:43.000Z",
+                "DocumentSourceName": "BSE",
+                "DocumentSourceURL": "https://www.bseindia.com/bseplus/AnnualReport/500325/74185500325.pdf"
+              },
+              {
+                "uniqueId": 2113,
+                "DocumentId": 3,
+                "name": "Annual Report 2022-2023",
+                "level": "Document",
+                "Name": "Annual Report 2022-2023",
+                "DocumentLocation": "D:/Python Projects/LLM/DocumentChat/Documents/RELIANCE.NSE/Annual Reports/AR_2022-23.pdf",
+                "DocumentDateTime": "2024-01-27T09:39:43.000Z",
+                "DocumentSourceName": "BSE",
+                "DocumentSourceURL": "https://www.bseindia.com/xml-data/corpfiling/AttachHis//b55b5dfc-a3bf-4f24-9d7f-ca09774a1dd9.pdf"
+              }
+            ]
+          },
+          {
+            "uniqueId": 214,
+            "DocumentTypeId": 4,
+            "DocumentTypeName": "Call Transcripts",
+            "name": "Call Transcripts",
+            "level": "DocumentTypeName",
+            "items": [
+              {
+                "uniqueId": 2147,
+                "DocumentId": 7,
+                "name": "Call Transcript 2023 09",
+                "level": "Document",
+                "Name": "Call Transcript 2023 09",
+                "DocumentLocation": "D:/Python Projects/LLM/DocumentChat/Documents/RELIANCE.NSE/Call Transcripts/Call Transcript 2023 09.pdf",
+                "DocumentDateTime": "2024-01-27T09:39:44.000Z",
+                "DocumentSourceName": "BSE",
+                "DocumentSourceURL": "https://www.bseindia.com/xml-data/corpfiling/AttachHis/ef9baa21-923a-48ad-9fb7-2157af59ae16.pdf"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "uniqueId": 22,
+        "StockId": 2,
+        "StockName": "Tata Consultancy Services Limited",
+        "name": "Tata Consultancy Services Limited",
+        "level": "StockName",
+        "items": [
+          {
+            "uniqueId": 221,
+            "DocumentTypeId": 1,
+            "DocumentTypeName": "Annual Reports",
+            "name": "Annual Reports",
+            "level": "DocumentTypeName",
+            "items": [
+              {
+                "uniqueId": 2214,
+                "DocumentId": 4,
+                "name": "Annual Report 2020-2021",
+                "level": "Document",
+                "Name": "Annual Report 2020-2021",
+                "DocumentLocation": "D:/Python Projects/LLM/DocumentChat/Documents/TCS.NSE/Annual Reports/AR_2020-21.pdf",
+                "DocumentDateTime": "2024-01-27T09:39:43.000Z",
+                "DocumentSourceName": "BSE",
+                "DocumentSourceURL": "https://www.bseindia.com/bseplus/AnnualReport/532540/68468532540_25_05_21.pdf"
+              },
+              {
+                "uniqueId": 2215,
+                "DocumentId": 5,
+                "name": "Annual Report 2021-2022",
+                "level": "Document",
+                "Name": "Annual Report 2021-2022",
+                "DocumentLocation": "D:/Python Projects/LLM/DocumentChat/Documents/TCS.NSE/Annual Reports/AR_2021-22.pdf",
+                "DocumentDateTime": "2024-01-27T09:39:44.000Z",
+                "DocumentSourceName": "BSE",
+                "DocumentSourceURL": "https://www.bseindia.com/bseplus/AnnualReport/532540/72996532540_17_06_22.pdf"
+              },
+              {
+                "uniqueId": 2216,
+                "DocumentId": 6,
+                "name": "Annual Report 2022-2023",
+                "level": "Document",
+                "Name": "Annual Report 2022-2023",
+                "DocumentLocation": "D:/Python Projects/LLM/DocumentChat/Documents/TCS.NSE/Annual Reports/AR_2022-23.pdf",
+                "DocumentDateTime": "2024-01-27T09:39:44.000Z",
+                "DocumentSourceName": "BSE",
+                "DocumentSourceURL": "https://www.bseindia.com/xml-data/corpfiling/AttachHis//3837c1b7-9308-436d-9636-1d6856edf74e.pdf"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

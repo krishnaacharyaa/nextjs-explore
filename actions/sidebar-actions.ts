@@ -18,7 +18,9 @@ export async function getUserUniverseData(userid: number) {
 
 export async function mutateUserUniverserData() {
   try {
+    console.log("Hello I am here");
     revalidateTag("userData");
+    getUserUniverseData(1);
   } catch {
     console.log(
       "Tag revalidate not  working properly. Please check your NextJS version and if you have the correct middleware installed."
