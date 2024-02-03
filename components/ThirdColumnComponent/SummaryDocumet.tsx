@@ -1,4 +1,3 @@
-import { mutateUserUniverserData } from "@/actions/sidebar-actions";
 import { useAppContext } from "@/context/appContext";
 import { useEffect, useState } from "react";
 
@@ -11,18 +10,23 @@ export default function SummaryDocument() {
     fetch(`http://localhost:3000/api/summary/${selectedDocument?.DocumentId}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setData(data.data);
         setLoading(false);
       });
   }, [selectedDocument]);
+
   return (
     <main>
-      <div className="p-2 ">Client Side API fetch based on selected Stock:</div>
-      {data}
-      <br></br>
-      <button onClick={() => mutateUserUniverserData()}>
-        Mutate the initial data
-      </button>
+      {selectedDocument != null ? (
+        data === null || data === undefined ? (
+          <div>Loading please wait </div>
+        ) : (
+          data
+        )
+      ) : (
+        <div>Please select a document</div>
+      )}
     </main>
   );
 }
