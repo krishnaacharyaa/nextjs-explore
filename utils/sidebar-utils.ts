@@ -79,10 +79,8 @@ export function getLocalStorageDataMappedWithDbData(
   localItems,
   dbItems
 ): any[] {
-  console.log("localitems");
-  console.log(localItems);
-  console.log("dbitems");
-  console.log(dbItems);
+  console.log({ localItems: localItems });
+  console.log({ oldDbItems: dbItems });
 
   if (localItems == null) return dbItems;
   const mapStatus = (local, db) => {
@@ -112,7 +110,6 @@ export function getLocalStorageDataMappedWithDbData(
       mapStatus(localItem, dbItem);
     }
   }
-  console.log("dbItems");
-  console.log(dbItems);
+  console.log({ newdbItems: dbItems });
   return dbItems;
 }

@@ -8,30 +8,17 @@ import Checkbox from "./Checkbox";
 
 export default function SideBarList(props) {
   const { items, compute } = props;
-  const {
-    ecosystemSelected,
-    setEcosystemSelected,
-    stockLevelSelected,
-    setStockLevelSelected,
-  } = useAppContext();
-  const [expandedItems, setExpandedItems] = useState<number[]>(
-    () => JSON.parse(localStorage.getItem("expandedItems")) || []
-  );
+  const {} = useAppContext();
+  const [expandedItems, setExpandedItems] = useState<number[]>([]);
   const toggleItem = (itemId: number, level: string) => {
     let newExpandedItems;
     if (expandedItems.includes(itemId)) {
       newExpandedItems = expandedItems.filter((id) => id !== itemId);
-    } else if (level === "StockName" || level === "EcoSystemName") {
-      // set parent-id and the stock id -> it works for ecosystem as well
-      newExpandedItems = [parseInt(itemId.toString().charAt(0)), itemId];
     } else {
       newExpandedItems = [...expandedItems, itemId];
     }
-    localStorage.setItem("expandedItems", JSON.stringify(newExpandedItems));
     setExpandedItems(newExpandedItems);
   };
-  const isEcoSystemLevel = (item) => item.level === "EcoSystemName";
-  const isStockLevel = (item) => item.level === "StockName";
   return (
     <ul className="list-none text-left pl-3">
       {items.map((item) => {
@@ -45,33 +32,15 @@ export default function SideBarList(props) {
 
         return (
           <li key={item.uniqueId} className="my-2">
-            <div
-              className={`${
-                ecosystemSelected === item.name
-                  ? "bg-sky-800 text-white hover:bg-sky-800"
-                  : stockLevelSelected.stockName === item.name
-                  ? "bg-sky-500 text-white hover:bg-sky-500"
-                  : "text-black"
-              } p-1 rounded-md flex hover:bg-sky-100`}
-            >
-              {/* Conditionally render Checkbox based on the level */}
-              {!isEcoSystemLevel(item) && (
-                <Checkbox
-                  id={item.uniqueId}
-                  name={item.name}
-                  checked={item.status === status.checked}
-                  indeterminate={item.status === status.indeterminate}
-                  compute={compute}
-                  onClick={() => {
-                    if (item.level === "StockName") {
-                      setStockLevelSelected({
-                        stockName: item.name,
-                        stockId: item.StockId,
-                      });
-                    }
-                  }}
-                />
-              )}
+            <div className="flex">
+              <Checkbox
+                id={item.uniqueId}
+                name={item.name}
+                checked={item.status === status.checked}
+                indeterminate={item.status === status.indeterminate}
+                compute={compute}
+                onClick={() => {}}
+              />
               <div className="flex w-full">
                 <label
                   onClick={() => {
@@ -105,21 +74,6 @@ export default function SideBarList(props) {
   );
 
   function handleLabelToggleClick(item) {
-    if (isEcoSystemLevel(item)) {
-      setEcosystemSelected(item.name);
-      setStockLevelSelected({
-        stockName: item.items[0].StockName,
-        stockId: item.items[0].StockId,
-      });
-      console.log("Selected Ecosystem" + item.name);
-    }
-    if (isStockLevel(item)) {
-      setStockLevelSelected({
-        stockName: item.name,
-        stockId: item.StockId,
-      });
-      console.log("Selected StockLevel" + item.name);
-    }
     toggleItem(item.uniqueId, item.level);
   }
 }
