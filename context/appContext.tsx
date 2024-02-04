@@ -33,32 +33,26 @@ const saveData = (data) => {
 };
 const getSavedData = () => {
   var savedData = null;
-  if (typeof window != undefined) {
-    savedData = localStorage.getItem(STORE_SELECTION)
-      ? JSON.parse(localStorage.getItem(STORE_SELECTION))
-      : null;
-    return savedData;
-  }
+  savedData = localStorage.getItem(STORE_SELECTION)
+    ? JSON.parse(localStorage.getItem(STORE_SELECTION))
+    : null;
   return savedData;
 };
 const getSavedStockLevelSelectedData = () => {
-  if (typeof window != undefined) {
-    return localStorage.getItem(STORE_SELECTED_STOCK)
-      ? JSON.parse(localStorage.getItem(STORE_SELECTED_STOCK))
-      : { stockName: "", stockId: "" };
-  }
-  return { stockName: "", stockId: "" };
+  return localStorage.getItem(STORE_SELECTED_STOCK)
+    ? JSON.parse(localStorage.getItem(STORE_SELECTED_STOCK))
+    : { stockName: "", stockId: "" };
 };
 
 const getSavedEcosystemSelectedData = () => {
-  if (typeof window != undefined) {
-    return localStorage.getItem(STORE_SELECTED_ECOSYSTEM)
-      ? localStorage.getItem(STORE_SELECTED_ECOSYSTEM)
-      : "";
-  }
-  return "";
+  return localStorage.getItem(STORE_SELECTED_ECOSYSTEM)
+    ? localStorage.getItem(STORE_SELECTED_ECOSYSTEM)
+    : "";
 };
 export default function AppContextProvider({ children, initialData }) {
+  // const [items, setItems] = useState(
+  //   getLocalStorageDataMappedWithDbData(getSavedData(), initialData) || []
+  // );
   const [items, setItems] = useState(getSavedData() || initialData || []);
   const [selectedItems, setSelectedItems] = useState<DocumentItemType[]>([]);
   const [selectedDocument, setSelectedDocument] =
@@ -72,11 +66,6 @@ export default function AppContextProvider({ children, initialData }) {
       stockId: "",
     }
   );
-  // useEffect(() => {
-  // 	setItems(getSavedData());
-  // 	setStockLevelSelected(getSavedStockLevelSelectedData());
-  // 	setEcosystemSelected(getSavedEcosystemSelectedData());
-  // }, []);
   useEffect(() => {
     saveData(items);
     const selectedLeafNodes: DocumentItemType[] = getSelectedLeafNodes(items);

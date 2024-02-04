@@ -139,7 +139,13 @@ export async function GET() {
         DocumentSourceURL:
           "https://www.bseindia.com/xml-data/corpfiling/AttachHis//3837c1b7-9308-436d-9636-1d6856edf74e.pdf",
       },
+      {
+        Id: 4,
+        EcoSystemId: 4,
+        EcoSystemName: "New Ecosystem",
+      },
     ];
+
     return NextResponse.json({ message: "OK", result: data }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: "Error", error }, { status: 500 });

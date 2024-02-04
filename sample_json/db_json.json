@@ -118,5 +118,10 @@
     "DocumentDateTime": "2024-01-27T09:39:44.000Z",
     "DocumentSourceName": "BSE",
     "DocumentSourceURL": "https://www.bseindia.com/xml-data/corpfiling/AttachHis//3837c1b7-9308-436d-9636-1d6856edf74e.pdf"
+  },
+  {
+    "Id": 4,
+    "EcoSystemId": 4,
+    "EcoSystemName": "New Ecosystem"
   }
 ]
